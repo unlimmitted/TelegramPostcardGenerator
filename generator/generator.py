@@ -187,7 +187,7 @@ def run_postcard_generator() -> None:
 
 if __name__ == '__main__':
     run_postcard_generator()
-    schedule.every().day.at("00:00", "Europe/Moscow").do(run_postcard_generator)
+    schedule.every().day.at("00:00").do(run_postcard_generator)
     while 1:
         schedule.run_pending()
         time.sleep(1)
