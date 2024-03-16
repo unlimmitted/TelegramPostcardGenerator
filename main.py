@@ -8,7 +8,7 @@ from generator import generator
 nest_asyncio.apply()
 
 
-def start_tasks():
+def thread_initiation():
     threads = [Thread(target=bot.run), Thread(target=generator.scheduler)]
 
     for thread in threads:
@@ -19,4 +19,4 @@ def start_tasks():
 
 
 if __name__ == '__main__':
-    start_tasks()
+    thread_initiation()
