@@ -1,9 +1,9 @@
 import os
 import random
 import textwrap
+import threading
 import time
 from datetime import datetime
-import threading
 from threading import Semaphore
 import requests
 import schedule
@@ -185,9 +185,13 @@ def run_postcard_generator() -> None:
         thread.join()
 
 
-if __name__ == '__main__':
+def scheduler():
     run_postcard_generator()
     schedule.every().day.at("00:00").do(run_postcard_generator)
     while 1:
         schedule.run_pending()
         time.sleep(1)
+
+
+if __name__ == '__main__':
+    scheduler()

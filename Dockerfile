@@ -3,6 +3,9 @@ ENV BOT_TOKEN=""
 ENV API_URL=""
 ENV API_TOKEN=""
 
-COPY .. /HolidayApp/.
+RUN mkdir HolidayBot
+COPY . /HolidayBot/.
 RUN pip install --upgrade pip
-RUN pip install -r /HolidayApp/requirements.txt
+RUN pip install -r /HolidayBot/requirements.txt
+
+CMD ["python", "/HolidayBot/main.py"]

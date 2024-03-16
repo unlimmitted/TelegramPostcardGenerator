@@ -44,9 +44,16 @@ async def on_inline_query(query: types.InlineQuery):
     await bot.answer_inline_query(query.id, results, cache_time=0, next_offset=str(next_offset))
 
 
-if __name__ == '__main__':
+def run():
     while True:
         try:
             executor.start_polling(dp, skip_updates=True)
         except Exception as error:
             print(error)
+
+# if __name__ == '__main__':
+#     while True:
+#         try:
+#             executor.start_polling(dp, skip_updates=True)
+#         except Exception as error:
+#             print(error)
